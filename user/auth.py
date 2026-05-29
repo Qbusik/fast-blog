@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 from db.crud import get_user_by_username
 from db.database import get_db, DBUser
 
-from user.models import User, UserInDB
+from user.schemas import User, UserInDB
 
 load_dotenv()
 

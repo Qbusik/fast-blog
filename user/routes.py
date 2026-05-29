@@ -9,7 +9,7 @@ from user.auth import (
     get_current_active_user,
     ACCESS_TOKEN_EXPIRE_MINUTES,
 )
-from user.models import User, UserCreate
+from user.schemas import User, UserCreate
 
 router = APIRouter()
 

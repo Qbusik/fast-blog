@@ -2,7 +2,7 @@ import os
 
 from db.crud import get_role_by_name, create_role, create_user, get_user_by_username
 from db.database import SessionLocal, engine, Base
-from user.models import UserCreate
+from user.schemas import UserCreate
 from dotenv import load_dotenv
 
 load_dotenv()
