@@ -69,6 +69,7 @@ async def get_current_user(
         raise credentials_exception
 
     db_user = get_user_by_username(db, username=username)
+
     if db_user is None:
         raise credentials_exception
     return convert_db_user_to_user(db_user)

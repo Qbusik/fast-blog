@@ -1,4 +1,4 @@
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from passlib.context import CryptContext
 from db.database import DBUser, DBRole
 from user.models import UserCreate
@@ -13,7 +13,12 @@ def get_user_by_id(db: Session, user_id: int):
 
 def get_user_by_username(db: Session, username: str):
     """Get user by username."""
-    return db.query(DBUser).filter(DBUser.username == username).first()
+    return (
+        db.query(DBUser)
+        .options(joinedload(DBUser.roles))
+        .filter(DBUser.username == username)
+        .first()
+    )
 
 
 def get_user_by_email(db: Session, email: str):
